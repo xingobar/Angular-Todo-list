@@ -2,8 +2,8 @@
     <div class="col-md-6 col-md-offset-4">
         <form action="" class="form-inline">
             <label for="name" class="control-label">Todo List Item Name : </label>
-            <input type="text" class="form-control" id="name" placeholder="todo list item">
-            <button type="submit" class="btn btn-primary" (click)="addTodo()">Submit</button>
+            <input type="text" name="name" class="form-control" id="name" [(ngModel)]="todoText" [placeholder]="placeholderText">
+            <button type="submit" class="btn btn-primary" (click)="addTodo($event)">Submit</button>
         </form>
     </div>
 </div>

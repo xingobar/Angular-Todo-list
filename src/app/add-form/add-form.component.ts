@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-add-form',
@@ -7,12 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddFormComponent implements OnInit {
 
+  placeholderText = 'Please enter todo list item';
+  todoText = '';
+  @Output() addTodoEvent = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  addTodo() {
-    console.log('表單提交');
+  addTodo($event) {
+    console.log('表單提交 ' , $event);
+    this.addTodoEvent.emit(this.todoText);
   }
 }

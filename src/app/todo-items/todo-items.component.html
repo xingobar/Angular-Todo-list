@@ -1,27 +1,16 @@
 <div class="row" style="padding-top:20px;">
   <div class="col-md-4 col-md-offset-4">
     <ul class="list-group">
-      <li class="list-group-item">
-        <label for="item1">
-          Item 1
-          <input type="checkbox" id="item1" >
-          | <a href="#">刪除</a>
+
+      <li *ngFor="let item of items" class="list-group-item">
+        <label htmlFor="chk_{{item.id}}">
+          <input type="checkbox" id="chk_{{item.id}}" [checked]="item.done" (click)="itemClick(item)">
         </label>
+        {{item.value}}
+        | <a href="#" (click)="delete(item)">刪除</a>
+        <span *ngIf="item.done">(Completed)</span>
       </li>
-      <li class="list-group-item">
-        <label for="item2">
-          Item 2
-          <input type="checkbox" id="item2" >
-          | <a href="#">刪除</a>
-        </label>
-      </li>
-      <li class="list-group-item">
-        <label for="item3">
-          Item 3
-          <input type="checkbox" id="item3" >
-          | <a href="#">刪除</a>
-        </label>
-      </li>
+
     </ul>
   </div>
 </div>

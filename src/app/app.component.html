@@ -7,5 +7,5 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <app-header></app-header>
-<app-add-form></app-add-form>
-<app-todo-items></app-todo-items>
+<app-add-form (addTodoEvent)="addTodoItem($event)"></app-add-form>
+<app-todo-items [items] = "todoItems" (deleteTodoEvent)="deleteTodoItem($event)"></app-todo-items>
