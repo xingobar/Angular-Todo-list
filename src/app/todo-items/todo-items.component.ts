@@ -10,6 +10,7 @@ export class TodoItemsComponent implements OnInit {
 
   @Input() items: TodoItem[]; // from parent to child
   @Output() deleteTodoEvent = new EventEmitter();
+  @Output() toggleDoneItem = new EventEmitter();
 
   constructor() { }
 
@@ -17,7 +18,7 @@ export class TodoItemsComponent implements OnInit {
   }
 
   itemClick(item) {
-    item.done = !item.done;
+    this.toggleDoneItem.emit(item);
   }
 
   delete(item){
